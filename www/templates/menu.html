@@ -1,0 +1,15 @@
+<!-- Menu Template -->
+<ion-view ng-controller="MenuController" view-title="Menu">
+    <ion-pane>
+        <ion-header-bar class="bar-dark">
+            <h1 class="title">Menu</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list>
+                <ion-item ng-repeat="item in menuItems" href="{{ item.url }}">
+                    {{ item.name }}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-pane>
+</ion-view>

@@ -1,0 +1,41 @@
+<!-- Independent Samples t-test Template -->
+<ion-view ng-controller="IndTController" view-title="Independent Samples t-test">
+    <ion-pane>
+        <ion-header-bar class="bar-dark">
+            <h1 class="title">Independent Samples t-test</h1>
+        </ion-header-bar>
+        <ion-content>
+            
+            <label class="item item-input">
+  				<span class="input-label">Before</span>
+  				<input ng-model="beforeData" type="text">
+                
+			</label>
+            
+            <label class="item item-input">
+                <span class="input-label">After</span>
+                <input ng-model="afterData" type="text">
+            </label>
+            
+            <button style="margin: 20px auto; display: table" class="button icon-left ion-plus button-large button-positive" ng-click="add(beforeData, afterData)">
+                Add to Dataset
+            </button>
+        
+            <ion-list ng-show="dataset.length > 0">
+                <ion-item ng-repeat="data in dataset">
+                    <div style="padding: 0" class="row">
+                        <span class="col">{{ data.before }}</span>
+                        <span class="col">{{ data.after }}</span>
+                    </div>
+                    <ion-option-button class="button-balanced">
+                        Edit
+                    </ion-option-button>
+                    <ion-option-button class="button-assertive">
+                        Delete
+                    </ion-option-button>
+                </ion-item>
+            </ion-list>
+        
+        </ion-content>
+    </ion-pane>
+</ion-view>
