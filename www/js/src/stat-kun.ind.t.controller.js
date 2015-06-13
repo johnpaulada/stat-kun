@@ -1,5 +1,5 @@
 (function(angular) {
-	angular.module('statkun').controller("IndTController", ['$scope', IndTController]);
+	angular.module('statkun').controller("IndTController", ['$scope', 'BasicStats', IndTController]);
 	
 	/**
 	 * Controls the Independent Samples t-test process
@@ -7,7 +7,7 @@
 	 * @params {Object} $scope
 	 * @returns {undefined}
 	 */
-	function IndTController($scope) {
+	function IndTController($scope, BasicStats) {
 		
 		// Initialize
 		$scope.dataset = [];
@@ -18,6 +18,8 @@
 				'before': beforeData,
 				'after':  afterData
 			});
+			
+			window.alert(BasicStats.getSum([1, 2, 3]));
 		}
 	}
 })(window.angular);
