@@ -7,24 +7,24 @@
         <ion-content>
             
             <label class="item item-input">
-  				<span class="input-label">Before</span>
-  				<input ng-model="beforeData" type="text">
+  				<span class="input-label">Experimental</span>
+  				<input ng-model="experimentalData" type="text">
 			</label>
             
             <label class="item item-input">
-                <span class="input-label">After</span>
-                <input ng-model="afterData" type="text">
+                <span class="input-label">Control</span>
+                <input ng-model="controlData" type="text">
             </label>
             
-            <button style="margin: 20px auto; display: table" class="button icon-left ion-plus button-large button-positive" ng-click="add(beforeData, afterData)">
+            <button style="margin: 20px auto; display: table" class="button icon-left ion-plus button-large button-positive" ng-click="add(experimentalData, controlData)">
                 Add to Dataset
             </button>
         
             <ion-list ng-show="dataset.length > 0">
                 <ion-item ng-repeat="data in dataset">
                     <div style="padding: 0" class="row">
-                        <span class="col">{{ data.before }}</span>
-                        <span class="col">{{ data.after }}</span>
+                        <span class="col">{{ data.experimental }}</span>
+                        <span class="col">{{ data.control }}</span>
                     </div>
                     <ion-option-button class="button-balanced">
                         Edit
@@ -35,7 +35,7 @@
                 </ion-item>
             </ion-list>
             
-            <button ng-show="dataset.length >= 2" style="margin: 20px auto; display: table" class="button icon-left ion-plus button-large button-positive">
+            <button ng-show="dataset.length >= 2" style="margin: 20px auto; display: table" class="button icon-left ion-plus button-large button-positive" ng-click="compute()">
                 Compute
             </button>            
         </ion-content>
