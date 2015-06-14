@@ -37,10 +37,16 @@
 			return Math.sqrt((pooledVariance / BasicStats.getN(dataX)) + (pooledVariance / BasicStats.getN(dataY)));
 		}
 		
+		function _getSignificance(dataX, dataY) {
+			return Math.abs(_getT(dataX, dataY)) > _getTTable()['0.05'][_getDF(dataX, dataY)];
+		}
+		
 		function _compute(dataX, dataY) {
 			return {
 				tCalc: _getT(dataX, dataY),
 				tCrit: _getTTable()['0.05'][_getDF(dataX, dataY)],
+				sig:   _getSignificance(dataX, dataY),
+				df:	   _getDF(dataX, dataY),
 				se:	   _getStandardError(dataX, dataY),
 				xStats: {
 					mean: BasicStats.getMean(dataX),
