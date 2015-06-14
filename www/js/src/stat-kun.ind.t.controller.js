@@ -1,5 +1,5 @@
 (function(angular) {
-	angular.module('statkun').controller("IndTController", ['$scope', IndTController]);
+	angular.module('statkun').controller("IndTController", ['$scope', 'IndependentT', IndTController]);
 	
 	/**
 	 * Controls the Independent Samples t-test process
@@ -7,7 +7,7 @@
 	 * @params {Object} $scope
 	 * @returns {undefined}
 	 */
-	function IndTController($scope) {
+	function IndTController($scope, IndependentT) {
 		
 		// Initialize
 		$scope.dataset = [];
